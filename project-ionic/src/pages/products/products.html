@@ -1,0 +1,34 @@
+<!--
+  Generated template for the ProductsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>products</ion-title>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding>
+
+    <button ion-button id="showCart" (click)="showCart()">My Cart</button>
+
+<ion-card *ngFor="let p of products">
+  <img src="{{p.image}}"/>
+  <ion-card-content>
+    <ion-card-title>
+      {{p.name}}
+      </ion-card-title>
+    <h2>
+      Product Price {{p.price}}
+    </h2>
+    <button ion-button full (click)="addToCart(p.pid)">Add to Cart</button>
+  </ion-card-content>
+</ion-card>
+</ion-content>

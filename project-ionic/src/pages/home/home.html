@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <ion-card *ngFor="let c of categories">
+    <img src="{{c.c_image}}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{c.c_name}}
+        </ion-card-title>
+      <h2>
+       Starting Price {{c.c_startprice}}
+      </h2>
+      <button ion-button full (click)="getProducts(c.cid)">View Products</button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

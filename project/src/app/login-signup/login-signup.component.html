@@ -1,0 +1,130 @@
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="assets/css/prettyPhoto.css" rel="stylesheet">
+<link href="assets/css/price-range.css" rel="stylesheet">
+<link href="assets/css/animate.css" rel="stylesheet">
+<link href="assets/css/main.css" rel="stylesheet">
+<link href="assets/css/responsive.css" rel="stylesheet">
+<!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+<link rel="shortcut icon" href="assets/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+
+<app-header></app-header>
+
+
+
+<div id="contact-page" class="container">
+  <div class="bg">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="contact-form">
+          <h2 class="title text-center">Sign Up</h2>
+          <div class="status alert alert-success" *ngIf="doRegister">User Registered.</div>
+          <form #f="ngForm" id="main-contact-fom" class="contact-form row" name="contact-form" novalidate>
+            <div class="form-group col-md-6">
+              <input type="text" name="name" #name="ngModel" minlength="3" maxlength="12" ngModel class="form-control" required placeholder="Name">
+
+              <div *ngIf="name.touched&&name.invalid" class="alert alert-danger">
+                <div *ngIf="name.errors.required">Name is required</div>
+                <div *ngIf="name.errors.minlength">Min length is 3</div>
+                <div *ngIf="name.errors.maxlength">Max length is 12</div>
+              </div>
+              
+            </div>
+            <div class="form-group col-md-6">
+              <input type="email" name="email" #email="ngModel" required ngModel class="form-control"  placeholder="Email">
+
+              <div *ngIf="email.touched&&email.invalid" class="alert alert-danger">
+                <div *ngIf="email.errors.required">Email is required</div>
+              </div>
+            </div>
+
+            <div class="form-group col-md-12">
+              <input type="password" name="password" #password="ngModel" minlength="5" maxlength="12" required ngModel class="form-control" placeholder="Password">
+
+              <div *ngIf="password.touched&&password.invalid" class="alert alert-danger">
+                <div *ngIf="password.errors.required">Password is required</div>
+                <div *ngIf="password.errors.minlength">Min length is 3</div>
+                <div *ngIf="password.errors.maxlength">Max length is 12</div>
+              </div>
+
+            </div>
+            <div class="form-group col-md-12">
+              <textarea name="address" #address="ngModel" minlength="8" maxlength="20"  id="address" ngModel required ngModel class="form-control" rows="8"
+                placeholder="Address"></textarea>
+
+                <div *ngIf="address.touched&&address.invalid" class="alert alert-danger">
+                  <div *ngIf="address.errors.required">Address is required</div>
+                  <div *ngIf="address.errors.minlength">Min length is 3</div>
+                  <div *ngIf="address.errors.maxlength">Max length is 12</div>
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+              <input type="submit" name="submit" class="btn btn-primary pull-right" value="Signup" (click)="register(f.value)">
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+
+      <div class="col-sm-4">
+        <div class="contact-info">
+          <h2 class="title text-center">Login</h2>
+          <div class="status alert alert-danger" *ngIf="loginFailed">Invalid Email or Password.</div>
+          <form #loginForm="ngForm" id="main-contact-form" class="contact-form row" name="contact-form">
+
+            <div class="form-group col-md-12">
+              <input type="text" name="email" #email_login="ngModel" ngModel class="form-control" required placeholder="Email">
+            <div *ngIf="email_login.touched&&email_login.invalid" class="alert alert-danger">
+              <div *ngIf="email_login.errors.required">Email is required</div>
+             </div>
+            </div>
+
+            <div class="form-group col-md-12">
+              <input type="password" name="password" #password_login="ngModel" ngModel class="form-control" required placeholder="Password">
+
+              <div *ngIf="password_login.touched&&password_login.invalid" class="alert alert-danger">
+                <div *ngIf="password_login.errors.required">Password is required</div>
+                </div>
+               
+            </div>
+            <div class="form-group col-md-12">
+              <input type="submit" name="submit" class="btn btn-primary pull-right" value="Login" (click)="login(loginForm.value)">
+            </div>
+          </form>
+
+
+          <!-- <div class="social-networks">
+            <h2 class="title text-center">Social Networking</h2>
+          <ul>
+            <li>
+              <a href="#"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-google-plus"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-youtube"></i></a>
+            </li>
+          </ul>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/#contact-page-->
+
+
+<app-footer></app-footer>
